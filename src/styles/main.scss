@@ -1,0 +1,146 @@
+@import "reset.css";
+
+$main: #1d3f42;
+$main-dark: #10292b;
+$main-accent: #ff4341;
+$main-accent-light: #ff6c62;
+$back: #e5eeeb;
+$border-r: 5px;
+$border: #d3dcd9;
+$white: #ffffff;
+
+body {
+    font-family: Roboto;
+    font-size: 16px;
+}
+
+.wrapper {
+    max-width: 600px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    background: linear-gradient(to right, #1d3f42 10%, #601e22 100%);
+
+    &-file-name {
+        color: $white;
+        margin-right: 5px;
+    }
+
+    &-logo {
+        margin-right: auto;
+
+        &__logo {
+            display: block;
+            font-weight: 700;
+            font-size: 24px;
+            text-transform: uppercase;
+            color: $white;
+            transition: .3s;
+
+            &:hover {
+                cursor: pointer;
+                color: $main-accent;
+            }
+        }
+
+        &__sub {
+            color: $white;
+            font-size: 12px;
+        }
+    }
+
+    &__search {
+        margin-left: 10px;
+
+        &.disabled {
+            width: 0;
+            padding: 8px 0;
+            overflow: hidden;
+        }
+    }
+
+    &-import {
+        position: relative;
+
+        &__input {
+            position: absolute;
+            visibility: hidden;
+            width: 0;
+        }
+    }
+
+    &-sub {
+        padding: 5px 15px;
+        font-size: 12px;
+        color: $white;
+        background: $main-dark;
+    }
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: $border-r;
+    padding: 8px 15px;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-transform: capitalize;
+    background: $main-accent;
+    transition: .3s;
+
+    &:hover {
+        background: $main-accent-light;
+    }
+
+    .material-icons {
+        margin-left: 5px;
+    }
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    background: $back;
+    height: 100%;
+    max-height: 500px;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    border: 1px solid $border;
+    border-bottom-left-radius: $border-r;
+    border-bottom-right-radius: $border-r;
+    font-size: 14px;
+
+    &__full-text {
+        flex-grow: 7;
+        padding: 15px;
+        margin-bottom: 15px;
+        border: 1px solid $border;
+        line-height: 20px;
+        overflow-x: auto;
+        border-radius: $border-r;
+    }
+
+    &__longest {
+        min-width: 150px;
+        padding: 15px;
+        border: 1px solid $border;
+        border-radius: $border-r;
+    }
+
+    .palindrome-str {
+        margin-right: 5px;
+        background: rgba(255, 255, 0, 0.31);
+
+        &-word {
+            background: rgba(255, 0, 0, 0.6);
+        }
+    }
+
+}
