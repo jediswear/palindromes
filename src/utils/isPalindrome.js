@@ -5,9 +5,11 @@ export const isPalindrome = (str) => {
 
   const formatted = str.toLowerCase().replace(/[^a-zA-Z]/g, '')
   const half = Math.floor(formatted.length / 2)
+  const even = formatted.length % 2 === 0
+  let toRight = even ? half + 1 : half
 
-  for (let i = half; i >= 0; i--) {
-    if (!formatted[i] || formatted[i] !== formatted[formatted.length - i - 1]) {
+  for (let toLeft = half; toLeft >= 0; toLeft--, toRight++) {
+    if (formatted[toLeft] !== formatted[toRight]) {
       return false
     }
   }
