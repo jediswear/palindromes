@@ -1,7 +1,8 @@
-import {SHOW_PALINDROMES} from '../actions/palindrome.action'
+import {CLEAR_PALINDROMES, SET_PALINDROMES_LIST, SHOW_PALINDROMES} from '../actions/palindrome.action'
 
 const initialState = {
-  show: false
+  show: false,
+  list: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +11,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         show: true
+      }
+    case SET_PALINDROMES_LIST:
+      const list = action.list.sort((a, b) => b.palindrome.length - a.palindrome.length)
+
+      return {
+        ...state,
+        list
+      }
+    case CLEAR_PALINDROMES:
+      return {
+        ...state,
+        list: null
       }
     default:
       return state

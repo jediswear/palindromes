@@ -1,17 +1,12 @@
 import React from 'react'
-import Sentence from './Sentence'
+import DisplayContent from './DisplayContent'
 import { connect } from 'react-redux'
-import { getPalindromes } from '../utils/isPalindrome'
 
-const Results = ({ file, palindrome }) => {
-  let text = file.content
-
-  const res = text && <Sentence content={text} palindromes={getPalindromes(text)}/>
-
+const Results = ({ file, palindrome: {show, list} }) => {
   return (
     <div className="results">
-      <div className="results__full-text">{res}</div>
-      <div className="results__longest">longest</div>
+      <div className="results__full-text">{show && list ? <DisplayContent/> : file.content}</div>
+      <div className="results__longest">{show && list ? list[0].palindrome : null}</div>
     </div>
   )
 }

@@ -1,10 +1,12 @@
 const findPalindrome = (text, leftPos, rightPos) => {
-  let res = {}
-
   const reg = /[^a-zA-Z]/
-
+  let res = {}
   let leftChar = text[leftPos]
   let rightChar = text[rightPos]
+
+  //spec symbol cant be center of symmetry
+  if(reg.test(text[leftPos + 1]))
+    return res
 
   while (leftPos >= 0 && rightPos < text.length) {
 
@@ -14,7 +16,6 @@ const findPalindrome = (text, leftPos, rightPos) => {
       if (!reg.test(text[res.start - 1]) || !reg.test(text[res.end])) {
         res.start = res.end = undefined
       }
-
       break
     }
 
@@ -30,7 +31,7 @@ const findPalindrome = (text, leftPos, rightPos) => {
       continue
     }
 
-    // res.palindrome = text.substring(leftPos, rightPos + 1)
+    res.palindrome = text.substring(leftPos, rightPos + 1)
     res.start = leftPos
     res.end = rightPos + 1
     leftChar = text[--leftPos]
@@ -49,16 +50,16 @@ export const findAll = (text) => {
     let start = i - 1, end = i + 1
     let res = findPalindrome(formattedText, start, end)
 
-    if (res.start)
+    if (res.start || res.end)
       results.push(res)
 
     start = i - 1
     end = i
     res = findPalindrome(formattedText, start, end)
-    if (res.start)
+    if (res.start || res.end)
       results.push(res)
-
   }
+
   return results
 }
 
@@ -73,3 +74,17 @@ export const getPalindromes = (text) => {
 
   })
 }
+
+export const mergePalindromesToText = (str, list) => {
+  let start = 0
+  const fullList = [...list, ''].sort((a, b) => a.start - b.start)
+
+  return fullList.reduce((acc, palindrome) => {
+
+    const substr = str.substring(start, palindrome.start)
+    start = palindrome.end
+    return [...acc, substr, palindrome]
+
+  }, [])
+}
+

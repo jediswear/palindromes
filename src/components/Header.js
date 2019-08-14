@@ -1,10 +1,15 @@
 import React, {Fragment} from 'react'
 import ImportFile from './ImportFile'
 import {connect} from 'react-redux'
-import {showPalindromes} from '../actions/palindrome.action'
+import {showPalindromes, setPalindromes} from '../actions/palindrome.action'
+import {getPalindromes} from '../utils/getPalindromes'
 
-const Header = ({ file, showPalindromes }) => {
-  const searchHandler = () => showPalindromes()
+const Header = ({ file, showPalindromes, setPalindromes }) => {
+  const searchHandler = () => {
+    const palindromes = getPalindromes(file.content)
+    setPalindromes(palindromes)
+    showPalindromes()
+  }
 
   return (
     <Fragment>
@@ -34,7 +39,8 @@ const mapStateToProps = ({ file }) => ({
 })
 
 const mapDispatchToProps = {
-  showPalindromes
+  showPalindromes,
+  setPalindromes
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

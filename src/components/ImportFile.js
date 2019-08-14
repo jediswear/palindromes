@@ -1,15 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {setFileContent, setFileInfo} from '../actions/file.action'
+import {clearPalindromes} from '../actions/palindrome.action'
 
-const ImportFile = ({setFileContent, setFileInfo}) => {
+const ImportFile = ({setFileContent, setFileInfo, clearPalindromes}) => {
   const importHandler = e => {
+    clearPalindromes()
     const file = e.target.files[0]
     const reader = new FileReader()
-
-    if(!file){
-      return
-    }
 
     reader.readAsText(file)
     reader.onload = function () {
@@ -33,7 +31,8 @@ const ImportFile = ({setFileContent, setFileInfo}) => {
 
 const mapDispatchToProps = {
   setFileContent,
-  setFileInfo
+  setFileInfo,
+  clearPalindromes
 }
 
 
