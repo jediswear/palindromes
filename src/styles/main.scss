@@ -25,7 +25,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     padding: 15px;
-    background: linear-gradient(to right, #1d3f42 10%, #601e22 100%);
+    //background: linear-gradient(to right, #1d3f42 10%, #601e22 100%);
 
     &-file-name {
         color: $white;
@@ -79,7 +79,7 @@ body {
         padding: 5px 15px;
         font-size: 12px;
         color: $white;
-        background: $main-dark;
+        //background: $main-dark;
     }
 }
 
@@ -92,11 +92,11 @@ body {
     box-sizing: border-box;
     color: #ffffff;
     text-transform: capitalize;
-    background: $main-accent;
+    //background: $main-accent;
     transition: .3s;
 
     &:hover {
-        background: $main-accent-light;
+        //background: $main-accent-light;
     }
 
     .material-icons {
@@ -107,21 +107,21 @@ body {
 .results {
     display: flex;
     flex-direction: column;
-    background: $back;
     height: 100%;
     max-height: 500px;
     box-sizing: border-box;
     padding: 20px 15px;
-    border: 1px solid $border;
+    //border: 1px solid $border;
     border-bottom-left-radius: $border-r;
     border-bottom-right-radius: $border-r;
     font-size: 14px;
+    //background: $back;
 
     &__full-text {
         flex-grow: 7;
         padding: 15px;
         margin-bottom: 15px;
-        border: 1px solid $border;
+        //border: 1px solid $border;
         line-height: 20px;
         overflow-x: auto;
         border-radius: $border-r;
@@ -130,7 +130,7 @@ body {
     &__longest {
         min-width: 150px;
         padding: 15px;
-        border: 1px solid $border;
+        //border: 1px solid $border;
         border-radius: $border-r;
     }
 

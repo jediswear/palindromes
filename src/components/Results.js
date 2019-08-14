@@ -1,19 +1,12 @@
 import React from 'react'
-import {getSentences} from '../utils/transformStrings'
 import Sentence from './Sentence'
-import {connect} from 'react-redux'
-import {findAll, extractPalindrome} from '../utils/isPalindrome'
+import { connect } from 'react-redux'
+import { getPalindromes } from '../utils/isPalindrome'
 
 const Results = ({ file, palindrome }) => {
-  const res = file.content && palindrome.show
-    ? getSentences(file.content).map((str, i) => <Sentence content={str} key={i}/>)
-    : file.content
+  let text = file.content
 
-  let result = file.content;
-  if (result) {
-    let palindromeList = findAll(res);
-    console.log(palindromeList)
-  }
+  const res = text && <Sentence content={text} palindromes={getPalindromes(text)}/>
 
   return (
     <div className="results">

@@ -1,24 +1,5 @@
-export const isPalindrome = (str) => {
-  if (str.trim().length < 2) {
-    return false
-  }
-
-  const formatted = str.toLowerCase().replace(/[^a-zA-Z]/g, '')
-  const half = Math.floor(formatted.length / 2)
-  const even = formatted.length % 2 === 0
-  let toRight = even ? half + 1 : half
-
-  for (let toLeft = half; toLeft >= 0; toLeft--, toRight++) {
-    if (formatted[toLeft] !== formatted[toRight]) {
-      return false
-    }
-  }
-
-  return true
-}
-
 const findPalindrome = (text, leftPos, rightPos) => {
-  let palindrome
+  let res = {}
 
   const reg = /[^a-zA-Z]/
 
@@ -27,8 +8,13 @@ const findPalindrome = (text, leftPos, rightPos) => {
 
   while (leftPos >= 0 && rightPos < text.length) {
 
-    //if chars are not equal && left + right chars not spec symbol
+    //if chars are not equal && left + right chars are not spec symbols
     if (leftChar !== rightChar && !reg.test(leftChar) && !reg.test(rightChar)) {
+
+      if (!reg.test(text[res.start - 1]) || !reg.test(text[res.end])) {
+        res.start = res.end = undefined
+      }
+
       break
     }
 
@@ -44,38 +30,46 @@ const findPalindrome = (text, leftPos, rightPos) => {
       continue
     }
 
-    palindrome = text.substring(leftPos, rightPos + 1)
+    // res.palindrome = text.substring(leftPos, rightPos + 1)
+    res.start = leftPos
+    res.end = rightPos + 1
     leftChar = text[--leftPos]
     rightChar = text[++rightPos]
   }
 
-  return palindrome
+  return res
 }
-
-function cutOut (str) {
-  //if is a part of palindrome cut
-  return str
-}
-
 
 export const findAll = (text) => {
 
-  const formattedText = text.toLowerCase().trim()
+  const formattedText = text.toLowerCase()
 
   let results = []
   for (let i = 1; i < formattedText.length; i++) {
     let start = i - 1, end = i + 1
-    let palindrome = findPalindrome(formattedText, start, end)
+    let res = findPalindrome(formattedText, start, end)
 
-    if (palindrome)
-      results.push(palindrome)
+    if (res.start)
+      results.push(res)
 
     start = i - 1
     end = i
-    palindrome = findPalindrome(formattedText, start, end)
-    if (palindrome)
-      results.push(palindrome)
+    res = findPalindrome(formattedText, start, end)
+    if (res.start)
+      results.push(res)
 
   }
   return results
+}
+
+export const getPalindromes = (text) => {
+  const list = findAll(text)
+
+  return list.map(el => {
+    return {
+      ...el,
+      palindrome: text.substring(el.start, el.end)
+    }
+
+  })
 }

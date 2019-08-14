@@ -1,24 +1,32 @@
 import React from 'react'
-import {isPalindrome} from '../utils/isPalindrome'
-import Word from './Word'
-import {getWords} from '../utils/transformStrings'
 
-const Sentence = ({ content }) => {
-  const palindrome = isPalindrome(content)
+const Sentence = ({ content, palindromes }) => {
 
-  console.log(getWords(content))
+  console.log('palindromes: ', content, palindromes)
 
-  const words = getWords(content).map((word, i) => <Word content={word} key={i}/>)
+  let text = content
 
+  let start = 0
+  let end = 0
 
+  const pastePalindrome = (str, list) => {
+
+  }
 
   return (
-    palindrome ?
-    <span className={palindrome ? 'palindrome-str' : ''}>
+    <>
       {
-        words
+        <span className={'palindrome-str'}>
+
+        </span>
       }
-    </span> : words
+    </>
+  )
+}
+
+const Test = () => {
+  return (
+    <span>1</span>
   )
 }
 
