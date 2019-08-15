@@ -117,6 +117,10 @@ body {
     font-size: 14px;
     background: $back;
 
+    &__caption{
+        margin-bottom: 5px;
+    }
+
     &__full-text {
         flex-grow: 7;
         padding: 15px;

@@ -5,7 +5,7 @@ const findPalindrome = (text, leftPos, rightPos) => {
   let rightChar = text[rightPos]
 
   //spec symbol cant be center of symmetry
-  if(reg.test(text[leftPos + 1]))
+  if (reg.test(text[leftPos + 1]))
     return res
 
   while (leftPos >= 0 && rightPos < text.length) {
@@ -71,7 +71,12 @@ export const getPalindromes = (text) => {
       ...el,
       palindrome: text.substring(el.start, el.end)
     }
+  }).filter((palindrome, i, list) => {
+    const res = list.find(insidePalindrome => {
+      return palindrome.start - insidePalindrome.start > 0 && insidePalindrome.end - palindrome.end > 0
+    })
 
+    return res ? false : true
   })
 }
 
