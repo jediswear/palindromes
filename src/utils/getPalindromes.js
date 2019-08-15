@@ -50,13 +50,13 @@ export const findAll = (text) => {
     let start = i - 1, end = i + 1
     let res = findPalindrome(formattedText, start, end)
 
-    if (res.start || res.end)
+    if ((res.start || res.end) && res.palindrome.length > 2)
       results.push(res)
 
     start = i - 1
     end = i
     res = findPalindrome(formattedText, start, end)
-    if (res.start || res.end)
+    if ((res.start || res.end) && res.palindrome.length > 2)
       results.push(res)
   }
 
