@@ -2,7 +2,7 @@ import {CLEAR_PALINDROMES, SET_PALINDROMES_LIST, SHOW_PALINDROMES} from '../acti
 
 const initialState = {
   show: false,
-  list: null
+  list: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -22,7 +22,7 @@ const reducer = (state = initialState, action) => {
     case CLEAR_PALINDROMES:
       return {
         ...state,
-        list: null
+        list: []
       }
     default:
       return state
