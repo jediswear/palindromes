@@ -1,4 +1,4 @@
-import {SET_FILE_CONTENT, SET_FILE_INFO} from '../actions/file.action'
+import { CLEAR_FILE, SET_FILE_CONTENT, SET_FILE_INFO } from '../actions/file.action'
 
 const initialState = {
   content: null,
@@ -16,6 +16,12 @@ const fileReducer = (state = initialState, action) => {
       return {
         ...state,
         name: action.name
+      }
+    case CLEAR_FILE:
+      return {
+        ...state,
+        content: null,
+        name: null
       }
     default:
       return state

@@ -12,6 +12,9 @@ $white: #ffffff;
 body {
     font-family: Roboto;
     font-size: 16px;
+    div{
+    //border: 1px solid #defada;
+    }
 }
 
 .wrapper {
@@ -76,10 +79,27 @@ body {
     }
 
     &-sub {
+        display: flex;
+        align-items: center;
+        min-height: 30px;
         padding: 5px 15px;
         font-size: 12px;
         color: $white;
         background: $main-dark;
+
+        &__error{
+            color: $main-accent;
+        }
+
+        &__remove{
+            border: none;
+            background: none;
+            color: $main-accent;
+
+            &:hover{
+                color: $main-accent-light;
+            }
+        }
     }
 }
 
@@ -96,6 +116,7 @@ body {
     transition: .3s;
 
     &:hover {
+        cursor: pointer;
         background: $main-accent-light;
     }
 

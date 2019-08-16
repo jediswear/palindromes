@@ -9,7 +9,7 @@ const Results = ({ file, palindrome: {show, list} }) => {
   return (
     <div className="results">
       <span className='results__caption'>Content:</span>
-      <div className="results__full-text">{show && list ? <DisplayContent/> : file.content}</div>
+      <div className="results__full-text">{show && list.length > 0 ? <DisplayContent/> : file.content}</div>
       <span className='results__caption'>Longest palindrome:</span>
       <div className="results__longest">{show ? longest : null}</div>
     </div>
