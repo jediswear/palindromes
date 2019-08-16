@@ -42,6 +42,7 @@ const ImportFile = ({setFileContent, setFileInfo, clearPalindromes, clearFile, s
         <input
           className='nav-import__input'
           type='file'
+          accept=".txt,.rtf"
           onClick={e => e.target.value = null}
           onChange={importHandler}/>
         import
