@@ -1,10 +1,62 @@
-import React, { Fragment } from 'react'
+import React, {Fragment} from 'react'
 import ImportFile from './ImportFile'
-import { connect } from 'react-redux'
-import { clearFile } from '../actions/file.action'
-import { showPalindromes, setPalindromes, clearPalindromes } from '../actions/palindrome.action'
-import { getPalindromes } from '../utils/getPalindromes'
-import { removeError } from '../actions/error.actions'
+import {connect} from 'react-redux'
+import {clearFile} from '../actions/file.action'
+import {showPalindromes, setPalindromes, clearPalindromes} from '../actions/palindrome.action'
+import {getPalindromes} from '../utils/getPalindromes'
+import {removeError} from '../actions/error.actions'
+import styled from 'styled-components'
+import Button from '../styles/Button'
+import Icon from './MaterialIcon'
+
+const Nav = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  background: linear-gradient(to right, #1d3f42 10%, #601e22 100%);
+`
+const LogoWrapper = styled.div`
+  margin-right: auto;
+`
+const Logo = styled.span`
+  display: block;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: ${props => props.theme.white};
+  transition: .3s;
+
+  &:hover {
+    cursor: pointer;
+    color: ${props => props.theme.mainAccent};
+  }
+`
+const LogoSub = styled.span`
+  color: ${props => props.theme.white};
+  font-size: 12px;
+`
+const NavSub = styled.div`
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 15px;
+  font-size: 12px;
+  color: ${props => props.theme.white};
+  background: ${props => props.theme.mainDark};
+`
+const Message = styled.span`
+  color: ${props => props.error ? props.theme.mainAccent : props.theme.white};
+`
+const RemoveBtn = styled.button`
+  border: none;
+  background: none;
+  color: ${props => props.theme.mainAccent};
+
+  &:hover {
+    color: ${props => props.theme.mainAccentLight};
+  }
+`
 
 const Header = ({ file, showPalindromes, setPalindromes, clearPalindromes, clearFile, error, removeError }) => {
   const searchHandler = () => {
@@ -30,34 +82,33 @@ const Header = ({ file, showPalindromes, setPalindromes, clearPalindromes, clear
 
   return (
     <Fragment>
-      <div className="nav">
-        <div className="nav-logo">
-          <span className='nav-logo__logo'>Plndrm</span>
-          <span className="nav-logo__sub">Gotta find 'em all</span>
-        </div>
+      <Nav>
+        <LogoWrapper>
+          <Logo>Plndrm</Logo>
+          <LogoSub>Gotta find 'em all</LogoSub>
+        </LogoWrapper>
         <ImportFile/>
-        <button
-          className={`btn nav__search ${file.content ? '' : 'disabled'}`}
+        <Button
+          style={{ marginLeft: '10px' }}
+          hidden={!file.content}
           onClick={searchHandler}>
           search
-          <i className="material-icons">search</i>
-        </button>
-      </div>
-      <div className="nav-sub">
-        <span className={error.msg ? 'nav-sub__error' : ''}>{message}</span>
+          <Icon>search</Icon>
+        </Button>
+      </Nav>
+      <NavSub>
+        <Message error={error.msg}>{message}</Message>
         {
           file.content
-            ? <button className='nav-sub__remove' onClick={clearHandler}>
-              <i className="material-icons">remove_circle</i>
-            </button>
+            ? <RemoveBtn onClick={clearHandler}>
+              <Icon>remove_circle</Icon>
+            </RemoveBtn>
             : null
         }
-
-      </div>
+      </NavSub>
     </Fragment>
   )
 }
-
 
 const mapStateToProps = ({ file, error }) => ({
   file,

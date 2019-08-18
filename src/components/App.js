@@ -1,13 +1,22 @@
 import React from 'react'
-import Results from './Results'
+import Results from './DisplayResults'
 import Header from './Header'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  max-width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+  font-family: Roboto;
+  font-size: 16px;
+`
 
 const App = () => {
   return (
-    <div className="wrapper">
+    <Wrapper>
       <Header/>
       <Results/>
-    </div>
+    </Wrapper>
   )
 }
 
