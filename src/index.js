@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import store from './store'
 import './styles/reset.css'
 import App from './components/App'
-import {ThemeProvider} from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 
 const theme = {
   main: '#1d3f42',

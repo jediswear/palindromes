@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MaterialIcon = ({children}) => {
+const MaterialIcon = ({ children }) => {
   return <i className="material-icons">{children}</i>
 }
 

@@ -1,4 +1,4 @@
-import {SET_ERROR, REMOVE_ERROR} from '../actions/error.actions'
+import { SET_ERROR, REMOVE_ERROR } from '../actions/error.actions'
 
 const initialState = {
   msg: null

@@ -1,4 +1,4 @@
-import {CLEAR_PALINDROMES, SET_PALINDROMES_LIST, SHOW_PALINDROMES} from '../actions/palindrome.action'
+import { CLEAR_PALINDROMES, SET_PALINDROMES_LIST, SHOW_PALINDROMES } from '../actions/palindrome.action'
 
 const initialState = {
   show: false,

@@ -35,7 +35,7 @@ const Longest = styled.div`
   border-radius: ${props => props.theme.borderRadius};
 `
 
-const DisplayResults = ({ file, palindrome: {show, list} }) => {
+const DisplayResults = ({ file, palindrome: { show, list } }) => {
 
   const longest = list.length > 0 && list[0].palindrome
 

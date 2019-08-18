@@ -1,6 +1,6 @@
 import React from 'react'
-import {mergePalindromesToText} from '../utils/getPalindromes'
-import {connect} from 'react-redux'
+import { mergePalindromesToText } from '../utils/getPalindromes'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 
 const Highlighted = styled.span`
@@ -14,14 +14,14 @@ const Highlighted = styled.span`
 `
 
 const DisplayContent = ({ content, list }) => {
-
   return mergePalindromesToText(content, list).map((el, i) => {
-    if (el.palindrome)
+    if (el.palindrome) {
       return (
         <Highlighted key={i}>
           {el.palindrome}
         </Highlighted>
       )
+    }
 
     return el
   })

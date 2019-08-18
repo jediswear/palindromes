@@ -1,10 +1,10 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import ImportFile from './ImportFile'
-import {connect} from 'react-redux'
-import {clearFile} from '../actions/file.action'
-import {showPalindromes, setPalindromes, clearPalindromes} from '../actions/palindrome.action'
-import {getPalindromes} from '../utils/getPalindromes'
-import {removeError} from '../actions/error.actions'
+import { connect } from 'react-redux'
+import { clearFile } from '../actions/file.action'
+import { showPalindromes, setPalindromes, clearPalindromes } from '../actions/palindrome.action'
+import { getPalindromes } from '../utils/getPalindromes'
+import { removeError } from '../actions/error.actions'
 import styled from 'styled-components'
 import Button from '../styles/Button'
 import Icon from './MaterialIcon'
@@ -73,12 +73,13 @@ const Header = ({ file, showPalindromes, setPalindromes, clearPalindromes, clear
 
   let message = null
 
-  if (error.msg)
+  if (error.msg) {
     message = error.msg
-  else if (file.name)
+  } else if (file.name) {
     message = file.name
-  else
+  } else {
     message = 'Hello! Import *.txt or *.rtf file and press Search button'
+  }
 
   return (
     <Fragment>
