@@ -6,7 +6,6 @@ pages:
     - npm config set registry https://registry.npmjs.org/
     - npm i
     - npm run build
-    - mv dist public
   artifacts:
     paths:
     - public
