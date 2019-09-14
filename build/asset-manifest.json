@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.0d401386.chunk.css",
-    "main.js": "/static/js/main.2a8e79b8.chunk.js",
-    "main.js.map": "/static/js/main.2a8e79b8.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.41beae26.js",
-    "runtime~main.js.map": "/static/js/runtime~main.41beae26.js.map",
-    "static/js/2.f1c9773e.chunk.js": "/static/js/2.f1c9773e.chunk.js",
-    "static/js/2.f1c9773e.chunk.js.map": "/static/js/2.f1c9773e.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.cc75f2be607a1995942d4bb4934dd5e8.js": "/precache-manifest.cc75f2be607a1995942d4bb4934dd5e8.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.0d401386.chunk.css.map": "/static/css/main.0d401386.chunk.css.map"
+    "main.css": "/palindromes/static/css/main.0d401386.chunk.css",
+    "main.js": "/palindromes/static/js/main.2a8e79b8.chunk.js",
+    "main.js.map": "/palindromes/static/js/main.2a8e79b8.chunk.js.map",
+    "runtime~main.js": "/palindromes/static/js/runtime~main.40557287.js",
+    "runtime~main.js.map": "/palindromes/static/js/runtime~main.40557287.js.map",
+    "static/js/2.ae2147b3.chunk.js": "/palindromes/static/js/2.ae2147b3.chunk.js",
+    "static/js/2.ae2147b3.chunk.js.map": "/palindromes/static/js/2.ae2147b3.chunk.js.map",
+    "index.html": "/palindromes/index.html",
+    "precache-manifest.8f226e21dffd5148c0b6df6decde4609.js": "/palindromes/precache-manifest.8f226e21dffd5148c0b6df6decde4609.js",
+    "service-worker.js": "/palindromes/service-worker.js",
+    "static/css/main.0d401386.chunk.css.map": "/palindromes/static/css/main.0d401386.chunk.css.map"
   }
 }
